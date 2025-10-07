@@ -1,10 +1,20 @@
 import { Link } from "react-router";
 import heroImg from "../assets/hero.png";
+import useAppList from "../Hooks/useAppList";
+import AppCard from "../Components/AppCard";
 
 const Home = () => {
+  const { appList } = useAppList();
+
+  const topAppList = appList
+    .slice()
+    .sort((a, b) => b.ratingAvg - a.ratingAvg)
+    .slice(0, 8);
+
   return (
     <div className=" bg-[#f5f5f5] pt-32 text-center ">
-      <div className=" mx-auto px-2 ">
+      {/*  Banner section */}
+      <section className=" mx-auto px-2 ">
         <h1 className="text-5xl md:text-7xl md:leading-21 text-[rgba(0,25,49,0.9)] font-bold">
           We Build <br />
           <span className="linear-gradient-style text-gradient">
@@ -50,9 +60,10 @@ const Home = () => {
           src={heroImg}
           alt="Hero app course page screenshot on a phone"
         />
-      </div>
+      </section>
 
-      <div className="linear-gradient-style w-full p-20 text-white">
+      {/* Stats section  */}
+      <section className="linear-gradient-style w-full p-20 text-white mb-20">
         <h3 className="mb-10 text-5xl font-bold">
           Trusted by Millions, Built for You
         </h3>
@@ -73,7 +84,23 @@ const Home = () => {
             <p>31 more will Launch</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Trending Apps section */}
+      <section className="pb-20">
+        <h2 className="text-5xl text-[#001931] font-bold mb-4">Top Apps</h2>
+        <p className="mb-10 text-xl text-[#627382]">
+          Explore All Trending Apps on the Market developed by us
+        </p>
+        <div className="mb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
+          {topAppList.map((appData) => (
+            <AppCard key={appData.id} appData={appData} />
+          ))}
+        </div>
+        <button className="btn btn-wide linear-gradient-style text-white font-semibold ">
+          Show All
+        </button>
+      </section>
     </div>
   );
 };
