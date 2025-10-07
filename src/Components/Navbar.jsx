@@ -57,10 +57,14 @@ const Navbar = () => {
         <ul className="gap-8 menu-horizontal px-1 font-medium">{navLinks}</ul>
       </div>
       <div className="navbar-end ">
-        <button className="btn linear-gradient-style text-white font-semibold ">
+        <Link
+          target="_blank"
+          to="https://github.com/samibyte"
+          className="btn linear-gradient-style text-white font-semibold "
+        >
           <FaGithub color="white" />
           Contribute
-        </button>
+        </Link>
       </div>
     </div>
   );
