@@ -1,10 +1,14 @@
+import Navbar from "../Components/Navbar";
+
 const RootLayout = () => {
   return (
-    <div>
-      <header></header>
+    <>
+      <header>
+        <Navbar />
+      </header>
       <main></main>
       <footer></footer>
-    </div>
+    </>
   );
 };
 
