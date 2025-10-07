@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Home from "../Pages/Home";
@@ -10,7 +11,7 @@ const RootLayout = () => {
           <Navbar />
         </header>
         <main className="flex-1">
-          <Home />
+          <Outlet />
         </main>
       </div>
       <Footer />
