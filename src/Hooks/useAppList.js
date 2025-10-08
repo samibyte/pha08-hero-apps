@@ -7,7 +7,11 @@ const useAppList = () => {
   const [loadError, setLoadError] = useState("");
 
   useEffect(() => {
-    axios("/appsData.json").then((data) => setAppList(data.data));
+    setIsLoading(true);
+    axios("/appsData.json")
+      .then((data) => setAppList(data.data))
+      .catch(setLoadError((err) => setLoadError(err)))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return { appList, isLoading, loadError };

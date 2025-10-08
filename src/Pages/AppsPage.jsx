@@ -4,7 +4,7 @@ import useAppList from "../Hooks/useAppList";
 const AppsPage = () => {
   const { appList } = useAppList();
   return (
-    <div className=" bg-[#f5f5f5] pt-32 text-center">
+    <div id="allApps" className=" bg-[#f5f5f5] pt-32 text-center">
       <section className="pb-20">
         <h2 className="text-5xl text-[#001931] font-bold mb-4">
           Our All Applications
@@ -36,7 +36,7 @@ const AppsPage = () => {
               </g>
             </svg>
             <input
-              className="text-[#627382] border-[#D2D2D2]"
+              className="text-[#627382] border-[#D2D2D2] focus:outline-none"
               type="search"
               required
               placeholder="Search Apps"

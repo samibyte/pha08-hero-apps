@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import heroImg from "../assets/hero.png";
 import useAppList from "../Hooks/useAppList";
 import AppCard from "../Components/AppCard";
+import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.production";
 
 const Home = () => {
   const { appList } = useAppList();
@@ -44,6 +45,7 @@ const Home = () => {
             <p>Google Play</p>
           </Link>
           <Link
+            to="https://www.apple.com/app-store/"
             className="btn md:btn-xl hover:shadow-xl rounded-sm border border-[#D2D2D2]"
             target="_blank"
           >
@@ -97,9 +99,13 @@ const Home = () => {
             <AppCard key={appData.id} appData={appData} />
           ))}
         </div>
-        <button className="btn btn-wide linear-gradient-style text-white font-semibold ">
+
+        <HashLink
+          to="/apps#allApps"
+          className="btn btn-wide linear-gradient-style py-3 text-white font-semibold "
+        >
           Show All
-        </button>
+        </HashLink>
       </section>
     </div>
   );
