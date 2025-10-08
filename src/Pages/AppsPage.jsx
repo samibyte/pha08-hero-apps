@@ -1,8 +1,18 @@
+import { useState } from "react";
 import AppCard from "../Components/AppCard";
 import useAppList from "../Hooks/useAppList";
 
 const AppsPage = () => {
   const { appList } = useAppList();
+
+  const [search, setSearch] = useState("");
+
+  const term = search.trim().toLocaleLowerCase();
+
+  const searchedAppList = term
+    ? appList.filter((app) => app.title.toLocaleLowerCase().includes(term))
+    : appList;
+
   return (
     <div id="allApps" className=" bg-[#f5f5f5] pt-32 text-center">
       <section className="pb-20">
@@ -36,7 +46,10 @@ const AppsPage = () => {
               </g>
             </svg>
             <input
-              className="text-[#627382] border-[#D2D2D2] focus:outline-none"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              id="search-field"
+              className="text-[#627382] border-[#D2D2D2] "
               type="search"
               required
               placeholder="Search Apps"
@@ -45,7 +58,7 @@ const AppsPage = () => {
         </div>
 
         <div className="mb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
-          {appList.map((appData) => (
+          {searchedAppList.map((appData) => (
             <AppCard key={appData.id} appData={appData} />
           ))}
         </div>
