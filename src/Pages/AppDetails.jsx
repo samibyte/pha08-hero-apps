@@ -3,10 +3,27 @@ import useAppList from "../Hooks/useAppList";
 import downloadIcon from "../assets/icon-downloads.png";
 import ratingIcon from "../assets/icon-ratings.png";
 import reviewIcon from "../assets/icon-review.png";
+import { useEffect, useState } from "react";
+import { loadInstalledApp, updateInstalledList } from "../Utils/localStorage";
+import { toast } from "react-toastify";
 
 const AppDetails = () => {
   const { id } = useParams();
   const { appList, isLoading } = useAppList();
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    const installedApp = loadInstalledApp();
+
+    const isDuplicate = installedApp?.some((app) => String(app.id) === id);
+    if (isDuplicate) setDisabled(true);
+  }, [id]);
+
+  const handleInstallClick = (appData) => {
+    updateInstalledList(appData);
+    setDisabled(true);
+    toast.success("App Installed");
+  };
 
   const appDetail = appList.find((p) => String(p.id) === id);
 
@@ -73,8 +90,12 @@ const AppDetails = () => {
               <p className="font-extrabold text-[40px]">{reviews}</p>
             </div>
           </div>
-          <button className="btn w-full md:btn-wide bg-[#00D390] text-white">
-            Install Now ({size} MB)
+          <button
+            disabled={disabled}
+            onClick={() => handleInstallClick(appDetail)}
+            className="btn w-full md:btn-wide bg-[#00D390] text-white"
+          >
+            {disabled ? "Installed" : `Install Now (${size} MB)`}
           </button>
         </div>
       </div>
@@ -82,7 +103,7 @@ const AppDetails = () => {
       {/* descriptions */}
       <div>
         <h4 className="text-[#001931] font-semibold text-2xl">Description</h4>
-        {console.log(description)}
+
         <p className=" text-[#627382] whitespace-pre-line">{description}</p>
       </div>
     </div>

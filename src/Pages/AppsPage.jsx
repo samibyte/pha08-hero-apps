@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AppCard from "../Components/AppCard";
 import useAppList from "../Hooks/useAppList";
+import AppNotFound from "./AppNotFound";
 
 const AppsPage = () => {
   const { appList } = useAppList();
@@ -14,8 +15,8 @@ const AppsPage = () => {
     : appList;
 
   return (
-    <div id="allApps" className=" bg-[#f5f5f5] pt-32 text-center">
-      <section className="pb-20">
+    <div id="allApps" className=" bg-[#f5f5f5] pt-32 text-center pb-20">
+      <section>
         <h2 className="text-5xl text-[#001931] font-bold mb-4">
           Our All Applications
         </h2>
@@ -26,7 +27,7 @@ const AppsPage = () => {
         {/* search bar and filter info */}
         <div className="flex justify-between mb-4 md:px-20">
           <p className="text-2xl text-[#001931] font-semibold">
-            ({appList.length}) Apps Found
+            ({searchedAppList.length}) Apps Found
           </p>
           <label className="input bg-[#f5f5f5]">
             <svg
@@ -56,15 +57,15 @@ const AppsPage = () => {
             />
           </label>
         </div>
-
-        <div className="mb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
-          {searchedAppList.map((appData) => (
-            <AppCard key={appData.id} appData={appData} />
-          ))}
-        </div>
-        <button className="btn btn-wide linear-gradient-style text-white font-semibold ">
-          Show All
-        </button>
+        {searchedAppList.length ? (
+          <div className="pb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
+            {searchedAppList.map((appData) => (
+              <AppCard key={appData.id} appData={appData} />
+            ))}
+          </div>
+        ) : (
+          <AppNotFound />
+        )}
       </section>
     </div>
   );
