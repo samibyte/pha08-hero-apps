@@ -34,7 +34,13 @@ const AppReviewChart = ({ ratings }) => {
   return (
     <div className="h-88 border-b-1 border-[rgba(0,25,49,0.2)] pb-12 mb-10 ">
       <h3 className="text-2xl font-semibold text-[#001931]">Ratings</h3>
-      <Suspense fallback={<LoadingAnimation />}>
+      <Suspense
+        fallback={
+          <div className="w-64 mx-auto mt-20">
+            <LoadingAnimation />
+          </div>
+        }
+      >
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={ratings}

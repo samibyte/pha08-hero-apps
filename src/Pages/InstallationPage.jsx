@@ -62,9 +62,11 @@ const InstallationPage = () => {
         </div>
         <div className="mb-4 min-h-screen md:px-20">
           {!installedList.length ? (
-            <p className="text-[#001931] mt-64 text-4xl font-semibold">
-              You have no app installed!
-            </p>
+            <div className="flex justify-center items-center min-h-[50vh]">
+              <p className="text-[#001931] text-4xl font-semibold">
+                You Have No App installed!
+              </p>
+            </div>
           ) : (
             <div>
               {sortedByDownload.map((appData) => (

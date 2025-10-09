@@ -4,11 +4,19 @@ import Navbar from "../Components/Navbar";
 import { Slide, ToastContainer } from "react-toastify";
 import LoadingAnimation from "../Components/LoadingAnimation";
 import { useLocation } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const RootLayout = () => {
   const navigation = useNavigation();
+  const location = useLocation();
   const { pathname } = useLocation();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timeout);
+  }, [location.pathname]);
 
   useEffect(() => {
     window.scrollTo({
@@ -17,6 +25,14 @@ const RootLayout = () => {
       behavior: "smooth",
     });
   }, [pathname]);
+
+  if (loading) {
+    return (
+      <div className="w-107 mx-auto fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <LoadingAnimation />
+      </div>
+    );
+  }
 
   return (
     <>

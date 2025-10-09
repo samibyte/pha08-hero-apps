@@ -3,7 +3,7 @@ import noAppImg from "../assets/App-Error.png";
 
 const AppNotFound = () => {
   return (
-    <div className="flex flex-col gap-5 justify-center items-center py-10">
+    <div className="min-h-screen bg-[#f5f5f5] pt-32 text-center flex flex-col gap-5 justify-center items-center py-10">
       <img src={noAppImg} alt="angry cat looking on screen | no app found" />
       <p className="text-[#001931] text-5xl font-semibold">
         OPPS!! APP NOT FOUND

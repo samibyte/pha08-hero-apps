@@ -71,7 +71,7 @@ const AppsPage = () => {
           </label>
         </div>
         {searchLoading ? (
-          <div className="flex justify-center items-center">
+          <div className="w-96 mt-20 mx-auto">
             <LoadingAnimation />
           </div>
         ) : displayList.length ? (
@@ -81,7 +81,11 @@ const AppsPage = () => {
             ))}
           </div>
         ) : (
-          <AppNotFound />
+          <div className="flex justify-center items-center min-h-[50vh]">
+            <p className="text-[#001931] text-4xl font-semibold">
+              No Apps Found!
+            </p>
+          </div>
         )}
       </section>
     </div>
