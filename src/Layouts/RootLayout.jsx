@@ -3,9 +3,20 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { Slide, ToastContainer } from "react-toastify";
 import LoadingAnimation from "../Components/LoadingAnimation";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 const RootLayout = () => {
   const navigation = useNavigation();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
 
   return (
     <>
@@ -20,7 +31,7 @@ const RootLayout = () => {
       </div>
       <Footer />
       <ToastContainer
-        position="top-center"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={true}

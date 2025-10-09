@@ -30,7 +30,8 @@ const AppDetails = () => {
   const handleInstallClick = (appData) => {
     updateInstalledList(appData);
     setDisabled(true);
-    toast.success("App Installed");
+
+    toast.success("App installed");
   };
 
   const appDetail = appList.find((p) => String(p.id) === id);

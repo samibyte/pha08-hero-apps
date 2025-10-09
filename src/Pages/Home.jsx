@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import heroImg from "../assets/hero.png";
 import useAppList from "../Hooks/useAppList";
 import AppCard from "../Components/AppCard";
-import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.production";
 
 const Home = () => {
   const { appList } = useAppList();
@@ -100,12 +99,12 @@ const Home = () => {
           ))}
         </div>
 
-        <HashLink
-          to="/apps#allApps"
+        <Link
+          to="/apps"
           className="btn btn-wide linear-gradient-style py-3 text-white font-semibold "
         >
           Show All
-        </HashLink>
+        </Link>
       </section>
     </div>
   );
