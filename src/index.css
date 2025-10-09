@@ -26,3 +26,8 @@ body {
 .active {
   @apply font-semibold underline decoration-[#632EE3] underline-offset-3;
 }
+
+.recharts-surface:focus,
+.recharts-surface *:focus {
+  outline: none !important;
+}
