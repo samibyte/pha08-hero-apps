@@ -1,18 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppCard from "../Components/AppCard";
 import useAppList from "../Hooks/useAppList";
 import AppNotFound from "./AppNotFound";
+import LoadingAnimation from "../Components/LoadingAnimation";
 
 const AppsPage = () => {
   const { appList } = useAppList();
-
   const [search, setSearch] = useState("");
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [displayList, setDisplayList] = useState(appList);
 
   const term = search.trim().toLocaleLowerCase();
 
-  const searchedAppList = term
-    ? appList.filter((app) => app.title.toLocaleLowerCase().includes(term))
-    : appList;
+  useEffect(() => {
+    setSearchLoading(true);
+
+    const timeout = setTimeout(() => {
+      const filtered = term
+        ? appList.filter((app) => app.title.toLocaleLowerCase().includes(term))
+        : appList;
+
+      setDisplayList(filtered);
+      setSearchLoading(false);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [search, appList, term]);
 
   return (
     <div id="allApps" className=" bg-[#f5f5f5] pt-32 text-center pb-20">
@@ -27,7 +40,7 @@ const AppsPage = () => {
         {/* search bar and filter info */}
         <div className="flex justify-between mb-4 md:px-20">
           <p className="text-2xl text-[#001931] font-semibold">
-            ({searchedAppList.length}) Apps Found
+            ({displayList.length}) Apps Found
           </p>
           <label className="input bg-[#f5f5f5]">
             <svg
@@ -57,9 +70,13 @@ const AppsPage = () => {
             />
           </label>
         </div>
-        {searchedAppList.length ? (
+        {searchLoading ? (
+          <div className="flex justify-center items-center">
+            <LoadingAnimation />
+          </div>
+        ) : displayList.length ? (
           <div className="pb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
-            {searchedAppList.map((appData) => (
+            {displayList.map((appData) => (
               <AppCard key={appData.id} appData={appData} />
             ))}
           </div>

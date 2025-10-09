@@ -1,9 +1,12 @@
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { Slide, ToastContainer } from "react-toastify";
+import LoadingAnimation from "../Components/LoadingAnimation";
 
 const RootLayout = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
@@ -11,6 +14,7 @@ const RootLayout = () => {
           <Navbar />
         </header>
         <main className="flex-1">
+          {navigation.state === "loading" && <LoadingAnimation />}
           <Outlet />
         </main>
       </div>
