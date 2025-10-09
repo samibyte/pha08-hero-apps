@@ -19,3 +19,15 @@ export const updateInstalledList = (appData) => {
     console.log(err);
   }
 };
+
+export const uninstallApp = (id) => {
+  const installed = loadInstalledApp();
+
+  try {
+    const updatedAppList = installed.filter((app) => app.id !== id);
+
+    localStorage.setItem("installedApp", JSON.stringify(updatedAppList));
+  } catch (err) {
+    console.log(err);
+  }
+};

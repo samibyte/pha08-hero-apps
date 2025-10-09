@@ -11,7 +11,7 @@ const AppCard = ({ appData }) => {
         className="card w-full rounded-sm gap-4
     shadow-lg cursor-pointer  bg-white hover:bg-base-300 hover:-translate-y-2 transition-all duration-200 p-4"
       >
-        <figure className=" h-88 overflow-hidden rounded-lg ">
+        <figure className="h-88 overflow-hidden rounded-lg">
           <img className="w-full object-cover" src={image} alt="app logo" />
         </figure>
         <div className="card-body gap-4">
