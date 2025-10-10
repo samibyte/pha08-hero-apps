@@ -34,21 +34,24 @@ const InstallationPage = () => {
   })();
 
   return (
-    <div className=" bg-[#f5f5f5] pt-32 text-center pb-20">
+    <div className=" bg-[#f5f5f5] pt-32 text-center pb-20 px-4">
       <section>
-        <h2 id="title" className="text-5xl text-[#001931] font-bold mb-4">
+        <h2
+          id="title"
+          className="text-3xl sm:text-5xl text-[#001931] font-bold mb-4"
+        >
           Your Installed Apps
         </h2>
-        <p className="mb-10 text-xl text-[#627382]">
+        <p className="mb-10 sm:text-xl text-[#627382]">
           Explore All Trending Apps on the Market developed by us
         </p>
 
         {/* sort and app info */}
-        <div className="flex justify-between mb-4 md:px-20">
-          <p className="text-2xl text-[#001931] font-semibold">
+        <div className="flex justify-between items-center mb-4 md:px-20">
+          <p className="sm:text-2xl text-[#001931] font-semibold">
             ({installedList.length}) Apps Found
           </p>
-          <label className="form-control w-full max-w-48">
+          <label className="form-control sm:w-full w-40 max-w-48">
             <select
               className="select select-bordered text-[#627382]"
               defaultValue={sortOrder}

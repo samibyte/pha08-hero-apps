@@ -28,21 +28,24 @@ const AppsPage = () => {
   }, [search, appList, term]);
 
   return (
-    <div id="allApps" className=" bg-[#f5f5f5] pt-32 text-center pb-20">
+    <div
+      id="allApps"
+      className=" bg-[#f5f5f5] pt-32 min-h-screen text-center pb-20 px-6"
+    >
       <section>
-        <h2 className="text-5xl text-[#001931] font-bold mb-4">
+        <h2 className="text-3xl sm:text-5xl text-[#001931] font-bold mb-4">
           Our All Applications
         </h2>
-        <p className="mb-10 text-xl text-[#627382]">
+        <p className="mb-10 sm:text-xl text-[#627382]">
           Explore All Apps on the Market developed by us. We code for Millions
         </p>
 
         {/* search bar and filter info */}
         <div className="flex justify-between mb-4 md:px-20">
-          <p className="text-2xl text-[#001931] font-semibold">
+          <p className="sm:text-2xl text-[#001931] font-semibold">
             ({displayList.length}) Apps Found
           </p>
-          <label className="input bg-[#f5f5f5]">
+          <label className="input w-40 md:w-100 bg-[#f5f5f5]">
             <svg
               className="h-[1.5em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -71,11 +74,11 @@ const AppsPage = () => {
           </label>
         </div>
         {searchLoading ? (
-          <div className="w-96 mt-20 mx-auto">
+          <div className="w- sm:w-96 mt-32 mx-auto">
             <LoadingAnimation />
           </div>
         ) : displayList.length ? (
-          <div className="pb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
+          <div className="pb-10 grid grid-cols-2 lg:grid-cols-4 gap-4 md:px-20">
             {displayList.map((appData) => (
               <AppCard key={appData.id} appData={appData} />
             ))}

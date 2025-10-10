@@ -15,29 +15,26 @@ const Home = () => {
     <div className=" bg-[#f5f5f5] pt-32 text-center ">
       {/*  Banner section */}
       <section className=" mx-auto px-2 ">
-        <h1 className="text-5xl md:text-7xl md:leading-21 text-[rgba(0,25,49,0.9)] font-bold">
+        <h1 className="text-5xl sm:text-7xl md:leading-21 text-[rgba(0,25,49,0.9)] font-bold">
           We Build <br />
           <span className="linear-gradient-style text-gradient">
             Productive
           </span>{" "}
           Apps
         </h1>
-        <p className="md:max-w-1/2 mx-auto pt-4 mb-10 text-xl text-[rgba(98,115,130,0.9)]">
+        <p className="md:max-w-1/2 mx-auto pt-4 mb-10 sm:text-xl text-[rgba(98,115,130,0.9)]">
           At HERO.IO, we craft innovative apps designed to make everyday life
           simpler, smarter, and more exciting.Our goal is to turn your ideas
           into digital experiences that truly make an impact.
         </p>
-        <div
-          className="text-[#001931] font-semibold text-xl flex gap-2
-           md:gap-4 justify-center items-center mb-10"
-        >
+        <div className="text-[#001931] font-semibold text-xl flex gap-4 justify-center items-center mb-10">
           <Link
             to="https://play.google.com"
             className="btn md:btn-xl hover:shadow-xl rounded-sm border border-[#D2D2D2]"
             target="_blank"
           >
             <img
-              className="w-8 md:w-10"
+              className="w-8 sm:w-10"
               src="https://img.icons8.com/?size=100&id=rZwnRdJyYqRi&format=png&color=000000"
               alt=""
             />{" "}
@@ -49,7 +46,7 @@ const Home = () => {
             target="_blank"
           >
             <img
-              className="w-8 md:w-10"
+              className="w-8 sm:w-10"
               src="https://img.icons8.com/?size=100&id=4PbFeZOKAc61&format=png&color=000000"
               alt=""
             />{" "}
@@ -64,36 +61,38 @@ const Home = () => {
       </section>
 
       {/* Stats section  */}
-      <section className="linear-gradient-style w-full p-20 text-white mb-20">
-        <h3 className="mb-10 text-5xl font-bold">
+      <section className="linear-gradient-style text-center w-full p-10 sm:p-20 text-white mb-20">
+        <h3 className="mb-10 text-3xl sm:text-5xl font-bold">
           Trusted by Millions, Built for You
         </h3>
-        <div className="flex gap-40 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-12 sm:gap-40 justify-center items-center">
           <div>
             <p>Total Downloads</p>
-            <p className="font-extrabold text-[64px]">29.6M</p>
+            <p className="font-extrabold text-5xl sm:text-[64px]">29.6M</p>
             <p>21% more than last month</p>
           </div>
           <div>
             <p>Total Reviews</p>
-            <p className="font-extrabold text-[64px]">906K</p>
+            <p className="font-extrabold text-5xl sm:text-[64px]">906K</p>
             <p>46% more than last month</p>
           </div>
           <div>
             <p>Active Apps</p>
-            <p className="font-extrabold text-[64px]">132+</p>
+            <p className="font-extrabold text-5xl sm:text-[64px]">132+</p>
             <p>31 more will Launch</p>
           </div>
         </div>
       </section>
 
       {/* Trending Apps section */}
-      <section className="pb-20">
-        <h2 className="text-5xl text-[#001931] font-bold mb-4">Top Apps</h2>
-        <p className="mb-10 text-xl text-[#627382]">
+      <section className="pb-20 px-4">
+        <h2 className="text-3xl sm:text-5xl text-[#001931] font-bold mb-4">
+          Top Apps
+        </h2>
+        <p className="mb-10 sm:text-xl text-[#627382]">
           Explore All Trending Apps on the Market developed by us
         </p>
-        <div className="mb-10 grid grid-cols-1 lg:grid-cols-4 gap-4 md:px-20">
+        <div className="mb-10 grid grid-cols-2 lg:grid-cols-4 gap-4 md:px-20">
           {topAppList.map((appData) => (
             <AppCard key={appData.id} appData={appData} />
           ))}
