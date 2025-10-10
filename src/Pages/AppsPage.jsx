@@ -74,7 +74,7 @@ const AppsPage = () => {
           </label>
         </div>
         {searchLoading ? (
-          <div className="w- sm:w-96 mt-32 mx-auto">
+          <div className="w-50 flex justify-center items-center sm:w-96 mt-48 mx-auto">
             <LoadingAnimation />
           </div>
         ) : displayList.length ? (
