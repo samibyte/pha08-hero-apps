@@ -31,9 +31,8 @@
  <a href="#about">About</a> •
  <a href="#features">Features</a> •
  <a href="#how-it-works">How it works</a> • 
- <a href="#tech-stack">Tech Stack</a> •  
- <a href="#author">Author</a> • 
- <a href="#user-content-license">License</a>
+ <a href="#tech-stack">Tech Stack</a> •
+
 </p>
 
 ## 🎥 Live Demo
@@ -66,7 +65,7 @@ It integrates **React Router**, **Tailwind CSS**, **DaisyUi**, **React Icons**, 
 
 ---
 
-## ⚙️ How it works
+## ⚙️ How-it-works
 
 The application includes four main pages and persistent localStorage functionality.
 
@@ -136,14 +135,16 @@ $ npm run dev
 
 ---
 
-## Tech Stack
+## 🛠️ Tech-Stack
 
-Frontend Framework: React (Vite)
-Routing: React Router v6
-Styling: Tailwind CSS
-Charts: Recharts (Lazy-loaded)
-Notifications: React Toastify
-Animations: CSS Animations / Framer Motion
-State Management: React Hooks + localStorage
-Deployment: Netlify / Vercel / Cloudflare
-Version Control: Git & GitHub
+| Category               | Technology / Tool                                                                                               |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Frontend Framework** | [React (Vite)](https://vitejs.dev/)                                                                             |
+| **Routing**            | [React Router v6](https://reactrouter.com/)                                                                     |
+| **Styling**            | [Tailwind CSS](https://tailwindcss.com/)                                                                        |
+| **Charts**             | [Recharts](https://recharts.org/en-US/) _(lazy-loaded)_                                                         |
+| **Notifications**      | [React Toastify](https://fkhadra.github.io/react-toastify/introduction)                                         |
+| **Animations**         | CSS Animations / [Framer Motion](https://www.framer.com/motion/)                                                |
+| **State Management**   | React Hooks + localStorage                                                                                      |
+| **Deployment**         | [Netlify](https://www.netlify.com/) / [Vercel](https://vercel.com/) / [Cloudflare](https://www.cloudflare.com/) |
+| **Version Control**    | [Git](https://git-scm.com/) & [GitHub](https://github.com/)                                                     |
