@@ -144,7 +144,7 @@ $ npm run dev
 | **Styling**            | [Tailwind CSS](https://tailwindcss.com/)                                                                        |
 | **Charts**             | [Recharts](https://recharts.org/en-US/) _(lazy-loaded)_                                                         |
 | **Notifications**      | [React Toastify](https://fkhadra.github.io/react-toastify/introduction)                                         |
-| **Animations**         | CSS Animations / [Framer Motion](https://www.framer.com/motion/)                                                |
+| **Animations**         | CSS Animations                                                                                                  |
 | **State Management**   | React Hooks + localStorage                                                                                      |
 | **Deployment**         | [Netlify](https://www.netlify.com/) / [Vercel](https://vercel.com/) / [Cloudflare](https://www.cloudflare.com/) |
 | **Version Control**    | [Git](https://git-scm.com/) & [GitHub](https://github.com/)                                                     |
